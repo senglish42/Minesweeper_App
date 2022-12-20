@@ -1,6 +1,7 @@
 package com.example.myminesweeper
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -18,23 +19,20 @@ class CustomizeFieldActivity : AppCompatActivity() {
         val height = findViewById<EditText>(R.id.height_edit)
         val width = findViewById<EditText>(R.id.width_edit)
         val mines = findViewById<EditText>(R.id.mines_edit)
+        val valuesList = listOf(height, width, mines)
+        val playButton = findViewById<Button>(R.id.button_play)
+        val backToMainButton = findViewById<Button>(R.id.button_back)
 
         height.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 height.setSelection(height.length())
             }
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (height.text.toString().isEmpty()) return
-                if (height.text.toString().toInt() > 10) {
-                    height.setText(height.text.toString().dropLast(1))
-                }
+                measureOnTextChanged(height)
             }
             override fun afterTextChanged(p0: Editable?) {
-                if (height.text.toString().isNotEmpty()) {
-                    var res = height.text.toString().toInt()
-                    if (width.text.toString().isNotEmpty()) res *= width.text.toString().toInt()
-                    mines.hint = "Type a number from 1 to ${if (res > 0) res else 1}"
-                }
+                measureAfterTextChanged(height, width, mines)
+                setTintToButton(valuesList, playButton)
             }
         })
 
@@ -43,17 +41,11 @@ class CustomizeFieldActivity : AppCompatActivity() {
                 width.setSelection(width.length())
             }
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (width.text.toString().isEmpty()) return
-                if (width.text.toString().toInt() > 10) {
-                    width.setText(width.text.toString().dropLast(1))
-                }
+                measureOnTextChanged(width)
             }
             override fun afterTextChanged(p0: Editable?) {
-                if (width.text.toString().isNotEmpty()) {
-                    var res = width.text.toString().toInt()
-                    if (height.text.toString().isNotEmpty()) res *= height.text.toString().toInt()
-                    mines.hint = "Type a number from 1 to ${if (res > 0) res else 1}"
-                }
+                measureAfterTextChanged(width, height, mines)
+                setTintToButton(valuesList, playButton)
             }
         })
 
@@ -68,11 +60,11 @@ class CustomizeFieldActivity : AppCompatActivity() {
                 if (mines.text.toString().toInt() > max) {
                     mines.setText(mines.text.toString().dropLast(1))
                 }
+                setTintToButton(valuesList, playButton)
             }
         })
 
-        val button = findViewById<Button>(R.id.button_main)
-        button.setOnClickListener {
+        playButton.setOnClickListener {
             val y = height.text.toString().toIntOrNull()
             val x = width.text.toString().toIntOrNull()
             val m = mines.text.toString().toIntOrNull()
@@ -83,6 +75,32 @@ class CustomizeFieldActivity : AppCompatActivity() {
                 intent.putExtra("values", arr)
                 startActivity(intent)
             } else Toast.makeText(applicationContext, "Fill all the lines to play!", Toast.LENGTH_SHORT).show()
+        }
+
+        backToMainButton.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+    }
+
+    private fun setTintToButton(valuesList: List<EditText>, button: Button) {
+        if (valuesList.count { it.text.toString().isNotEmpty() &&
+                    it.text.toString().toInt() in 1..10 } == 3) {
+            button.backgroundTintList = getColorStateList(R.color.deep_yellow)
+        }
+    }
+
+    private fun measureOnTextChanged(measure: EditText) {
+        if (measure.text.toString().isEmpty()) return
+        if (measure.text.toString().toInt() > 10) {
+            measure.setText(measure.text.toString().dropLast(1))
+        }
+    }
+
+    private fun measureAfterTextChanged(measure: EditText, nextMeasure: EditText, mines: EditText) {
+        if (measure.text.toString().isNotEmpty()) {
+            var res = measure.text.toString().toInt()
+            if (nextMeasure.text.toString().isNotEmpty()) res *= nextMeasure.text.toString().toInt()
+            mines.hint = "Type a number from 1 to ${if (res > 0) res else 1}"
         }
     }
 }

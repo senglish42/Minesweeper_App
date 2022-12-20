@@ -5,117 +5,120 @@
     android:id="@+id/linearLayoutCompat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="61dp"
-        android:text="@string/name"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/height_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
-        android:layout_marginBottom="27dp"
-        android:text="@string/height_text"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/height_edit"
-        app:layout_constraintStart_toStartOf="@+id/height_edit" />
-
-    <EditText
-        android:id="@+id/height_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="31dp"
-        android:autofillHints=""
-        android:gravity="center"
-        android:hint="@string/hint"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:text=""
-        android:textColor="#D500F9"
-        android:textColorHint="#D500F9"
-        app:layout_constraintBottom_toTopOf="@+id/width_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/width_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="25dp"
-        android:text="@string/width_text"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/width_edit"
-        app:layout_constraintStart_toStartOf="@+id/width_edit" />
+    android:background="@drawable/bomb"
+    tools:context=".CustomizeFieldActivity">
 
     <EditText
         android:id="@+id/width_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="38dp"
         android:autofillHints=""
-        android:hint="@string/hint"
         android:gravity="center"
+        android:hint="@string/hint"
         android:inputType="number"
         android:minHeight="48dp"
         android:text=""
-        android:textColor="#D500F9"
-        android:textColorHint="#D500F9"
+        android:textColor="@color/gray"
+        android:textColorHint="#212121"
         app:layout_constraintBottom_toTopOf="@+id/mines_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
-        android:id="@+id/mines_text"
+        android:id="@+id/width_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="28dp"
-        android:text="@string/mines_text"
-        android:textColor="@color/white"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/width_text"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/mines_edit"
-        app:layout_constraintStart_toStartOf="@+id/mines_edit" />
+        app:layout_constraintBottom_toTopOf="@+id/width_edit"
+        app:layout_constraintEnd_toEndOf="@+id/width_edit" />
+
+    <EditText
+        android:id="@+id/height_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
+        android:gravity="center"
+        android:hint="@string/hint"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:text=""
+        android:textColor="@color/gray"
+        android:textColorHint="#212121"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/height_text" />
+
+    <Button
+        android:id="@+id/button_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="@string/button_main"
+        android:textColor="#212121"
+        android:backgroundTint="@color/gray"
+        app:layout_constraintEnd_toEndOf="@+id/mines_edit"
+        app:layout_constraintTop_toBottomOf="@+id/mines_edit" />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="@string/back_to_main"
+        android:textColor="#000000"
+        android:backgroundTint="@color/red"
+        app:layout_constraintStart_toStartOf="@+id/mines_edit"
+        app:layout_constraintTop_toBottomOf="@+id/mines_edit" />
 
     <EditText
         android:id="@+id/mines_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="209dp"
+        android:layout_marginTop="297dp"
+        android:layout_marginBottom="297dp"
         android:autofillHints=""
         android:gravity="center"
         android:hint="@string/hint_mines"
         android:inputType="number"
         android:minHeight="48dp"
         android:text=""
-        android:textColor="#D500F9"
-        android:textColorHint="#D500F9"
+        android:textColor="@color/gray"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/height_text" />
 
-    <Button
-        android:id="@+id/button_main"
+    <TextView
+        android:id="@+id/mines_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:text="@string/button_main"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mines_edit" />
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/mines_text"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/mines_edit"
+        app:layout_constraintEnd_toEndOf="@+id/mines_edit" />
+
+    <TextView
+        android:id="@+id/height_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="28dp"
+        android:text="@string/height_text"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/height_edit"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

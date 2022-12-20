@@ -16,6 +16,7 @@
     <string name="hint">Type a number from 1 to 10</string>
     <string name="hint_mines">Type a number from 1 to 1</string>
     <string name="main_description">TAP TO PLAY</string>
+    <string name="back_to_main">BACK</string>
     <string name="button_5">5 x 5</string>
     <string name="button_8">8 x 8</string>
     <string name="button_10">10 x 10</string>
