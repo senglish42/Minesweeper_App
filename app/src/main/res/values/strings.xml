@@ -15,6 +15,11 @@
     <string name="mines_text">Mines on the field:</string>
     <string name="hint">Type a number from 1 to 10</string>
     <string name="hint_mines">Type a number from 1 to 1</string>
+    <string name="main_description">TAP TO PLAY</string>
+    <string name="button_5">5 x 5</string>
+    <string name="button_8">8 x 8</string>
+    <string name="button_10">10 x 10</string>
+    <string name="button_custom">CUSTOM</string>
     <string name="button_main">PLAY</string>
     <string name="button_play">CHECK</string>
     <string name="hello_first_fragment">Hello first fragment</string>
