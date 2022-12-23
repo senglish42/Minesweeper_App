@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="playRow1" type="id"/>
+    <item name="playRow2" type="id"/>
+    <item name="playRow3" type="id"/>
+    <item name="playRow4" type="id"/>
+    <item name="playRow5" type="id"/>
+    <item name="playRow6" type="id"/>
+    <item name="playRow7" type="id"/>
+    <item name="playRow8" type="id"/>
+    <item name="playRow9" type="id"/>
+    <item name="playRow10" type="id"/>
+</resources>

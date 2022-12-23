@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun sendIntent(num: Int) {
         val arr = Array(3){num}.toIntArray()
-        val intent = Intent(this, PlayActivity::class.java)
+        val intent = Intent(this, NewPlayActivity::class.java)
         intent.putExtra("values", arr)
         startActivity(intent)
     }

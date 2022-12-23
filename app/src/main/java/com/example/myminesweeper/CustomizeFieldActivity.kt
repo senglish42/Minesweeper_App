@@ -70,8 +70,8 @@ class CustomizeFieldActivity : AppCompatActivity() {
             val m = mines.text.toString().toIntOrNull()
             if (y != null && x != null && m != null)
             {
-                val arr = arrayOf(y, x, m).toIntArray()
-                val intent = Intent(this, PlayActivity::class.java)
+                val arr = arrayOf(x, y, m).toIntArray()
+                val intent = Intent(this, NewPlayActivity::class.java)
                 intent.putExtra("values", arr)
                 startActivity(intent)
             } else Toast.makeText(applicationContext, "Fill all the lines to play!", Toast.LENGTH_SHORT).show()
@@ -84,14 +84,14 @@ class CustomizeFieldActivity : AppCompatActivity() {
 
     private fun setTintToButton(valuesList: List<EditText>, button: Button) {
         if (valuesList.count { it.text.toString().isNotEmpty() &&
-                    it.text.toString().toInt() in 1..10 } == 3) {
+                    it.text.toString().toInt() in 1..50 } == 3) {
             button.backgroundTintList = getColorStateList(R.color.deep_yellow)
         }
     }
 
     private fun measureOnTextChanged(measure: EditText) {
         if (measure.text.toString().isEmpty()) return
-        if (measure.text.toString().toInt() > 10) {
+        if (measure.text.toString().toInt() > 50) {
             measure.setText(measure.text.toString().dropLast(1))
         }
     }

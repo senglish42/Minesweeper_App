@@ -20,6 +20,8 @@
             android:exported="true"/>
         <activity android:name=".PlayActivity"
             android:exported="true"/>
+        <activity android:name=".NewPlayActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

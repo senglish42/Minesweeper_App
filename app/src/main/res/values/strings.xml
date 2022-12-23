@@ -1,12 +1,10 @@
 <resources>
     <string name="app_name">My Minesweeper</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="name">MINESWEEPER</string>
     <string name="setter_text">Set/unset mines marks or claim a cell as free:</string>
     <string name="setter_edit">For example: "5 3 free", "4 6 mine"</string>
@@ -17,12 +15,18 @@
     <string name="hint_mines">Type a number from 1 to 1</string>
     <string name="main_description">TAP TO PLAY</string>
     <string name="back_to_main">BACK</string>
+    <string name="play_mines">MINES: </string>
+    <string name="free">FREE</string>
+    <string name="mine">MINE</string>
+    <string name="demine">DEMINE</string>
     <string name="button_5">5 x 5</string>
     <string name="button_8">8 x 8</string>
     <string name="button_10">10 x 10</string>
     <string name="button_custom">CUSTOM</string>
     <string name="button_main">PLAY</string>
     <string name="button_play">CHECK</string>
+    <string name="play_again">RESTART</string>
+    <string name="game_over">YOU STEPPED ON THE MINE AND FAILED</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
