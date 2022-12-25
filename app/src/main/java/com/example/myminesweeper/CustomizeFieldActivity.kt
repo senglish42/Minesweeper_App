@@ -1,7 +1,6 @@
 package com.example.myminesweeper
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -71,7 +70,7 @@ class CustomizeFieldActivity : AppCompatActivity() {
             if (y != null && x != null && m != null)
             {
                 val arr = arrayOf(x, y, m).toIntArray()
-                val intent = Intent(this, NewPlayActivity::class.java)
+                val intent = Intent(this, PlayActivity::class.java)
                 intent.putExtra("values", arr)
                 startActivity(intent)
             } else Toast.makeText(applicationContext, "Fill all the lines to play!", Toast.LENGTH_SHORT).show()
@@ -100,7 +99,7 @@ class CustomizeFieldActivity : AppCompatActivity() {
         if (measure.text.toString().isNotEmpty()) {
             var res = measure.text.toString().toInt()
             if (nextMeasure.text.toString().isNotEmpty()) res *= nextMeasure.text.toString().toInt()
-            mines.hint = "Type a number from 1 to ${if (res > 0) res else 1}"
+            mines.hint = "Type a number from 1 to ${if (res > 0) res - 1 else 1}"
         }
     }
 }

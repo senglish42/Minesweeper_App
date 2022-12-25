@@ -11,11 +11,11 @@
     <string name="height_text">Height of the field:</string>
     <string name="width_text">Width of the field:</string>
     <string name="mines_text">Mines on the field:</string>
-    <string name="hint">Type a number from 1 to 10</string>
+    <string name="hint">Type a number from 1 to 50</string>
     <string name="hint_mines">Type a number from 1 to 1</string>
     <string name="main_description">TAP TO PLAY</string>
     <string name="back_to_main">BACK</string>
-    <string name="play_mines">MINES: </string>
+    <string name="play_mines">MINES LEFT: </string>
     <string name="free">FREE</string>
     <string name="mine">MINE</string>
     <string name="demine">DEMINE</string>

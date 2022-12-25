@@ -20,7 +20,7 @@
             android:exported="true"/>
         <activity android:name=".PlayActivity"
             android:exported="true"/>
-        <activity android:name=".NewPlayActivity"
+        <activity android:name=".PlayActivity"
             android:exported="true"/>
     </application>
 

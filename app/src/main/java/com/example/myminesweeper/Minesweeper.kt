@@ -5,8 +5,9 @@ class Minesweeper(private var height: Int, private val width: Int = 0, private v
     private val arr = Array(capacity){'+'}
     private var minesLeft = mines
     private var isMineChosen = false
+    private var isFirstStep = true
 
-    init { arr.fillRandom(this.mines, this.capacity) }
+//    init { arr.fillRandom(this.mines, this.capacity) }
 
     fun getArr() = this.arr
     fun getWidth() = this.width
@@ -39,6 +40,7 @@ class Minesweeper(private var height: Int, private val width: Int = 0, private v
     }
 
     fun run(x: Int, y: Int, str: String) {
+        if (isFirstStep) { arr.fillRandom(this.mines, this.capacity, y * width + x) ; isFirstStep = false }
         if (str == "free") {
             if (arr[y * width + x] == 'X') { isMineChosen = true }
             else if (arr[y * width + x] == '+') { unlockCells(x, y) }
