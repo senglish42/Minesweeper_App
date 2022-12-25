@@ -29,4 +29,5 @@
     <string name="game_over">YOU STEPPED ON THE MINE AND FAILED</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="winner">WELL DONE! YOU WON A GAME!</string>
 </resources>

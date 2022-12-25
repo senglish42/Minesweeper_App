@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun sendIntent(num: Int) {
-        val arr = Array(3){num}.toIntArray()
+        val arr = List(3){num}.toIntArray()
         val intent = Intent(this, PlayActivity::class.java)
         intent.putExtra("values", arr)
         startActivity(intent)
@@ -19,9 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.button5).setOnClickListener { sendIntent(5) }
-        findViewById<Button>(R.id.button8).setOnClickListener { sendIntent(8) }
-        findViewById<Button>(R.id.button10).setOnClickListener { sendIntent(10) }
+        val buttonList = listOf(R.id.button5, R.id.button8, R.id.button10)
+        val numList = listOf(5, 8, 10)
+        for (i in buttonList.indices) {
+            findViewById<Button>(buttonList[i]).setOnClickListener { sendIntent(numList[i]) }
+        }
         findViewById<Button>(R.id.buttonCustom).setOnClickListener {
             startActivity(Intent(this, CustomizeFieldActivity::class.java))
         }
