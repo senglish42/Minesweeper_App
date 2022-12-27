@@ -23,9 +23,7 @@ class CustomizeFieldActivity : AppCompatActivity() {
         val backToMainButton = findViewById<Button>(R.id.button_back)
 
         height.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                height.setSelection(height.length())
-            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 measureOnTextChanged(height)
             }
@@ -36,9 +34,7 @@ class CustomizeFieldActivity : AppCompatActivity() {
         })
 
         width.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                width.setSelection(width.length())
-            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 measureOnTextChanged(width)
             }
@@ -56,9 +52,7 @@ class CustomizeFieldActivity : AppCompatActivity() {
             }
             override fun afterTextChanged(p0: Editable?) {
                 val max = mines.hint.toString().split(' ').last().toInt()
-                if (mines.text.toString().toInt() > max) {
-                    mines.setText(mines.text.toString().dropLast(1))
-                }
+                if (mines.text.toString().toInt() > max) mines.setText(max.toString())
                 setTintToButton(valuesList, playButton)
             }
         })
@@ -83,23 +77,26 @@ class CustomizeFieldActivity : AppCompatActivity() {
 
     private fun setTintToButton(valuesList: List<EditText>, button: Button) {
         if (valuesList.count { it.text.toString().isNotEmpty() &&
-                    it.text.toString().toInt() in 1..50 } == 3) {
+                    it.text.toString().isNotEmpty()} == 3) {
             button.backgroundTintList = getColorStateList(R.color.deep_yellow)
-        }
+        } else button.backgroundTintList = getColorStateList(R.color.gray)
     }
 
     private fun measureOnTextChanged(measure: EditText) {
         if (measure.text.toString().isEmpty()) return
-        if (measure.text.toString().toInt() > 50) {
-            measure.setText(measure.text.toString().dropLast(1))
-        }
+        if (measure.text.toString().toInt() > 50) measure.setText(R.string.max)
     }
 
     private fun measureAfterTextChanged(measure: EditText, nextMeasure: EditText, mines: EditText) {
+        var res = 0
         if (measure.text.toString().isNotEmpty()) {
-            var res = measure.text.toString().toInt()
+            res = measure.text.toString().toInt()
             if (nextMeasure.text.toString().isNotEmpty()) res *= nextMeasure.text.toString().toInt()
-            mines.hint = "Type a number from 1 to ${if (res > 0) res - 1 else 1}"
+        } else if (nextMeasure.text.toString().isNotEmpty()) res = nextMeasure.text.toString().toInt()
+        mines.hint = "Type a number from 1 to ${if (res > 2) res - 1 else 1}"
+        val max = mines.hint.toString().split(' ').last().toInt()
+        if (mines.text.isNotEmpty() && mines.text.toString().toInt() > max) {
+            mines.setText(max.toString())
         }
     }
 }

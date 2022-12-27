@@ -2,6 +2,7 @@ package com.example.myminesweeper
 
 import android.app.ActionBar.LayoutParams
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -56,8 +57,12 @@ class PlayActivity : AppCompatActivity() {
             check.setOnClickListener {
                 val cell = game.getCell(i.second - 1, i.third - 1)
                 if (cell in listOf('*', '%')) {
+                    freeMineButtonList[0].isEnabled = false
+                    freeMineButtonList[0].setBackgroundColor(Color.GRAY)
                     setMineTextAndDrawable(freeMineButtonList, check, R.string.demine, R.drawable.image_flag_chosen)
                 } else {
+                    freeMineButtonList[0].isEnabled = true
+                    freeMineButtonList[0].setBackgroundColor(Color.parseColor("#F0B040"))
                     setMineTextAndDrawable(freeMineButtonList, check, R.string.mine, R.drawable.cell_chosen)
                 }
                 checkIfNoActionAfterClick(buttonTriple, i, game)

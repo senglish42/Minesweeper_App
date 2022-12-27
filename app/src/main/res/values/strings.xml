@@ -19,6 +19,7 @@
     <string name="free">FREE</string>
     <string name="mine">MINE</string>
     <string name="demine">DEMINE</string>
+    <string name="max">50</string>
     <string name="button_5">5 x 5</string>
     <string name="button_8">8 x 8</string>
     <string name="button_10">10 x 10</string>
