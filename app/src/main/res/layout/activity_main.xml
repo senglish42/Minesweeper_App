@@ -7,7 +7,7 @@
     android:theme="@style/Theme.MyMinesweeper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bomb"
+    android:background="?attr/bomb_picture"
     android:orientation="horizontal"
     tools:context=".MainActivity">
 

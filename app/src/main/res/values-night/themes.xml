@@ -11,6 +11,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="bomb_picture">@drawable/bomb_dark</item>
     </style>
 
     <style name="playButton" parent="@style/Widget.AppCompat.Button.Colored">

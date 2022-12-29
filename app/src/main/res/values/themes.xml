@@ -11,6 +11,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="bomb_picture">@drawable/bomb_light</item>
+
     </style>
 
     <style name="Theme.MyMinesweeper.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
